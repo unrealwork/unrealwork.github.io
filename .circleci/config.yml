@@ -11,9 +11,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install globlal packages
-          command: 'sudo npm install -g @angular/cli'
-      - run:
           name: Install dependencies
           command: 'npm install'
       - run:
