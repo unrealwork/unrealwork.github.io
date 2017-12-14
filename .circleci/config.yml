@@ -1,9 +1,7 @@
-
 version: 2
 branches:
   ignore:
     - master
-
 jobs:
   build:
     docker:
@@ -14,6 +12,6 @@ jobs:
 
     steps:
       - checkout
-    - run:
-      name: Update npm
-      command: 'sudo npm install -g npm@latest'
+      - run:
+        name: Update npm
+        command: 'sudo npm install -g npm@latest'
