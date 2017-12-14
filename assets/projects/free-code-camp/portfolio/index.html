@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+            $('.menu .item').tab();
+            $('.ui.accordion').accordion();
+        }
+    );
+</script>
+<div id="header-container" class="ui text container">
+    <div id="menu-container" class="ui three item pointing menu">
+        <a class="item active" href="#about">
+            <i class="icon user"></i> About
+        </a>
+        <a class="item" href="#portfolio">
+            <i class="icon browser"></i>Portfolio
+        </a>
+        <a class="item" href="#contacts">
+            <i class="icon at"></i>Contacts
+        </a>
+    </div>
+</div>
+<!--About Container-->
+<div id="about-container" class="ui raised very padded text container segment">
+    <a name="about"></a>
+    <img class="ui small centered circular bordered image" src="images/photo.jpg">
+    <h2 class="ui centered header">Igor Shmagrinskiy</h2>
+    <h3 class="ui centered header"><em>QA</em>/<em>Software</em> Engineer</h3>
+    <p>
+        I'm a student in Saint-Petersburg university. Now I'm working in @axibase corporation and
+        writing a bachelor thesis.
+    </p>
+    <div class="ui horizontal divider">
+        <i class="icon users"></i> Work Experience
+    </div>
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="content">
+                    <img class="right floated small ui image"
+                         src="https://axibase.com/wp-content/uploads/2014/12/axibase_logo_orange-2.png">
+                    <div class="header">
+                        Junior Developer
+                    </div>
+                    <div class="meta">
+                        Development integration apps, testing, support of Time Series Distributed
+                        Database
+                    </div>
+                </div>
+                <div class="content">
+                    <h4 class="ui header">Responsibilities</h4>
+                    <div class="description">
+                        <div class="ui middle bulleted aligned list">
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui label">Java</div>
+                                </div>
+                                Functional tests development
+                            </div>
+
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui label">Java</div>
+                                    <div class="ui label">Bash</div>
+                                    <div class="ui label">Docker</div>
+                                </div>
+                                System and testing utils development
+                            </div>
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui label">Javascript</div>
+                                </div>
+                                Web applications development
+                            </div>
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui label">Java</div>
+                                    <div class="ui label">NodeJS</div>
+                                </div>
+                                Development API client based on HTTP API
+                            </div>
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui label">Markdown</div>
+                                </div>
+                                Writing documentation
+                            </div>
+                            <div class="item">
+                                Support and operations
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Education-->
+    <div class="ui horizontal divider">
+        <i class="icon student"></i> Education
+    </div>
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="content">
+                    <img class="right floated mini ui image"
+                         src="http://spbu.ru/templates/shape5_vertex/images/gerb.png">
+                    <div class="header">
+                        Saint Petersburg State University
+                    </div>
+                    <div class="meta">
+                        Bachelor<br>
+                    </div>
+                    <div class="description">
+                        Mathematics and Mechanics Faculty,department of Computer Science
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div id="portfolio-container" class="ui raised very padded text container segment">
+    <a name="portfolio"></a>
+    <h2 class="ui header">Portfolio</h2>
+    <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="testing">Testing</a>
+        <a class="item" data-tab="second">Second</a>
+        <a class="item" data-tab="third">Third</a>
+    </div>
+    <div class="ui bottom styled attached accordion active tab segment" data-tab="testing">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            What is a dog?
+        </div>
+        <div class="content">
+            <p class="transition hidden">A dog is a type of domesticated animal. Known for its
+                loyalty and faithfulness, it can be found as a welcome guest in many households
+                across the world.</p>
+        </div>
+        <div class="title active">
+            <i class="dropdown icon"></i>
+            What kinds of dogs are there?
+        </div>
+        <div class="content active">
+            <p class="transition visible">There are many breeds of dogs. Each breed varies in size
+                and temperament. Owners often select a breed of dog that they find to be compatible
+                with their own lifestyle and desires from a companion.</p>
+        </div>
+        <div class="title">
+            <i class="dropdown icon"></i>
+            How do you acquire a dog?
+        </div>
+        <div class="content">
+            <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private
+                owners, or shelters.</p>
+            <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private
+                owner allows you to assess the pedigree and upbringing of your dog before choosing
+                to take it home. Lastly, finding your dog from a shelter, helps give a good home to
+                a dog who may not find one so readily.</p>
+        </div>
+
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        Second
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="third">
+        Third
+    </div>
+</div>
+<div id="contacts-container" class="ui bottom text container segment">
+    <h3 class="ui header centered">Around the Web</h3>
+    <div class="ui divider">
+    </div>
+    <div class="ui four centered grid container">
+        <div class="column">
+            <a href="https://github.com/unrealwork" target="_blank"><i class="icon big github"></i></a>
+        </div>
+        <div class="column">
+            <a href="https://www.facebook.com/shmagrinskiy" target="_blank"><i
+                    class="icon big facebook"></i></a>
+        </div>
+        <div class="column">
+            <a href="https://plus.google.com/104798243288562329738" target="_blank"><i
+                    class="icon big google plus"></i></a>
+        </div>
+        <div class="column">
+            <a href="https://twitter.com/Shmagrinskiy" target="_blank"><i
+                    class="icon big twitter"></i></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
