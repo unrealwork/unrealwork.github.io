@@ -11,11 +11,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update npm
-          command: 'sudo npm install -g npm@latest'
-      - run:
           name: Install globlal packages
-          command: 'sudo npm i -g @angular/cli angular-cli-ghpages'
+          command: 'sudo npm install -g @angular/cli'
+      - run:
+          name: Install dependencies
+          command: 'npm install'
       - run:
           name: Build project
           command: 'npm run build'
