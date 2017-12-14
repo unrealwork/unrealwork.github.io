@@ -7,11 +7,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node
-
     working_directory: ~/repo
-
     steps:
       - checkout
       - run:
-        name: Update npm
-        command: 'sudo npm install -g npm@latest'
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
