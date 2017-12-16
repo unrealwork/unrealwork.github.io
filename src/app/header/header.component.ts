@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from '../models/menu.item.model';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-header',
@@ -10,10 +11,10 @@ export class HeaderComponent implements OnInit {
     items: Array<MenuItem>;
     selected: MenuItem;
 
-    constructor() {
+    constructor(private titleService: Title) {
         this.items = [
             new MenuItem('Home', '/'), new MenuItem('CV', '/cv')];
-        this.selected = this.items[0];
+        this.onSelect(this.items[0]);
     }
 
     ngOnInit() {
@@ -21,5 +22,6 @@ export class HeaderComponent implements OnInit {
 
     onSelect(item) {
         this.selected = item;
+        this.titleService.setTitle(item.name);
     }
 }
