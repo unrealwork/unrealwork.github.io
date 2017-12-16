@@ -10,7 +10,7 @@ import {FooterComponent} from './footer/footer.component';
 
 const appRoutes: Routes = [
     {
-        path: '',
+        path: 'cv',
         component: HomeComponent
     },
     {
