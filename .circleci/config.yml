@@ -3,6 +3,10 @@ branches:
   ignore:
     - master
 
+dependencies:
+  cache_directories:
+    - node_modules
+
 jobs:
   build:
     docker:
