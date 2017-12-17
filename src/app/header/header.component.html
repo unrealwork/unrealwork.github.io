@@ -1,7 +1,8 @@
 <header>
-    <sm-menu class="ui blue secondary pointing">
-        <a sm-item routerLink="{{item.link}}" (click)="onSelect(item)"
-           [ngClass]="{active: selected === item}"
-           *ngFor="let item of items">{{item.name}}</a>
-    </sm-menu>
+    <div class="ui blue secondary pointing menu">
+        <a routerLink="{{item.link}}" (click)="onSelect(item)" class="item" [ngClass]="{active: selected === item}"
+           *ngFor="let item of items">
+            {{item.name}}
+        </a>
+    </div>
 </header>

@@ -7,7 +7,6 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
-import {NgSemanticModule} from "ng-semantic";
 
 const appRoutes: Routes = [
     {
@@ -31,7 +30,6 @@ const appRoutes: Routes = [
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRoutes),
-        NgSemanticModule
     ],
     providers: [],
     bootstrap: [AppComponent]
