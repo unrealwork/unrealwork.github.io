@@ -2,12 +2,9 @@
     <div id="about-container" class="ui raised very padded text container">
         <a name="about"></a>
         <img class="ui small centered circular bordered image" src="assets/photo.jpg">
-        <h2 class="ui centered header">Igor Shmagrinskiy</h2>
-        <h3 class="ui centered header"><em>QA</em>/<em>Software</em> Engineer</h3>
-        <p>
-            I'm a student in Saint-Petersburg university. Now I'm working in @axibase corporation and
-            writing a bachelor thesis.
-        </p>
+        <h2 class="ui centered header">{{(cv | async)?.name}}</h2>
+        <h3 class="ui centered header">{{(cv | async)?.heading}}</h3>
+        <p>{{(cv | async)?.description}}</p>
         <div class="ui horizontal divider">
             <i class="icon users"></i> Work Experience
         </div>
