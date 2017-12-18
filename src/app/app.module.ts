@@ -14,6 +14,10 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 
 const appRoutes: Routes = [
     {
+        path: '',
+        component: CvComponent
+    },
+    {
         path: 'cv',
         component: CvComponent
     },

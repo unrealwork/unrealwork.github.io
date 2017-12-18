@@ -12,8 +12,7 @@ export class HeaderComponent implements OnInit {
     selected: MenuItem;
 
     constructor(private titleService: Title) {
-        this.items = [
-            new MenuItem('Home', '/'), new MenuItem('CV', '/cv')];
+        this.items = [new MenuItem('CV', '/cv')];
         this.onSelect(this.items[0]);
     }
 
