@@ -1,14 +1,12 @@
 version: 2
 
+
 dependencies:
   cache_directories:
     - node_modules
 
 jobs:
   build:
-    branches:
-      ignore:
-        - master
     docker:
       # specify the version you desire here
       - image: circleci/node
@@ -19,9 +17,6 @@ jobs:
           name: Install dependencies
           command: 'yarn install'
   deploy:
-    branches:
-      ignore:
-        - master
     docker:
       # specify the version you desire here
       - image: circleci/node
@@ -46,6 +41,9 @@ jobs:
 
 workflows:
   version: 2
+  branches:
+    ignore:
+      - master
   build-test-and-deploy:
     jobs:
       - build
