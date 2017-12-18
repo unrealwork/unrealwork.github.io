@@ -19,9 +19,6 @@ jobs:
           name: Install dependencies
           command: 'npm install'
       - run:
-          name: Build project
-          command: 'npm run build'
-      - run:
           name: Retrieve production config
           command: 'curl $FIREBASE_PRODUCTION_CONFIG > ./src/environments/environment.prod.ts '
       - run:
