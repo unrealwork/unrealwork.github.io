@@ -31,11 +31,14 @@ jobs:
       - run:
           name: Retrieve production config
           command: 'curl $FIREBASE_PRODUCTION_CONFIG > ./src/environments/environment.prod.ts '
+      -run:
+         name: Build in production mode
+         command: 'npm run build.prod'
       - run:
           name: Create Circl CI config
           command: 'mkdir ./dist/.circleci && curl $CIRCLE_CI_MASTER_CONFIG > ./dist/.circleci/config.yml'
       - run:
-          name: Deploy
+          name: Deploy to master branch
           command: 'npm run deploy'
 
 workflows:
