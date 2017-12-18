@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Retrieve production config
           command: 'curl $FIREBASE_PRODUCTION_CONFIG > ./src/environments/environment.prod.ts '
-      -run:
+      - run:
          name: Build in production mode
          command: 'npm run build.prod'
       - run:
