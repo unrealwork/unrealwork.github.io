@@ -23,6 +23,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node
     working_directory: ~/repo
+    steps:
       - run:
           name: Retrieve production config
           command: 'curl $FIREBASE_PRODUCTION_CONFIG > ./src/environments/environment.prod.ts '
