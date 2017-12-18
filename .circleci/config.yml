@@ -36,7 +36,7 @@ jobs:
          command: 'npm run build.prod'
       - run:
           name: Copy circle CI config
-          command: 'mkdir ./dist/.circleci && cp ./.circleci/config.yml > ./dist/.circleci/config.yml'
+          command: 'mkdir ./dist/.circleci && cp ./.circleci/config.yml ./dist/.circleci/config.yml'
       - run:
           name: Deploy to master branch
           command: 'npm run deploy'
