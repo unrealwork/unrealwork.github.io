@@ -1,9 +1,7 @@
-<header class="mainMenu">
-    <div class="ui blue secondary pointing menu">
-        <a class="item"></a>
-        <a routerLink="{{item.link}}" (click)="onSelect(item)" class="item" [ngClass]="{active: selected === item}"
-           *ngFor="let item of items">
-            {{item.name}}
-        </a>
-    </div>
-</header>
+<div class="ui stackable menu">
+    <a class="item"><img src="/assets/logo.png"></a>
+    <a routerLink="{{item.link}}" (click)="onSelect(item)" class="item" [ngClass]="{active: selected === item}"
+         *ngFor="let item of items">
+        {{item.name}}
+    </a>
+</div>
