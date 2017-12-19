@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
     selected: MenuItem;
 
     constructor(private titleService: Title) {
-        this.items = [new MenuItem('CV', '/cv')];
+        this.items = [new MenuItem('About', '/cv')];
         this.onSelect(this.items[0]);
     }
 
