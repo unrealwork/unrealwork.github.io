@@ -1,7 +1,0 @@
-<div class="ui stackable menu">
-    <a routerLink="/" class="item"><img src="/assets/logo.png"></a>
-    <a routerLink="{{item.link}}" (click)="onSelect(item)" class="item" [ngClass]="{active: selected === item}"
-         *ngFor="let item of items">
-        {{item.name}}
-    </a>
-</div>
