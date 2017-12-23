@@ -1,5 +1,5 @@
 <template>
-  <div class="ui stackable menu">
+  <div class="ui menu">
     <router-link :to="'/'" class="item"
                  v-on:click.native="selected = null">
       <img src="../assets/logo.png"/>

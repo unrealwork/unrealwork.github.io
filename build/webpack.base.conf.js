@@ -4,6 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -22,7 +23,10 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.ts'
+    app: './src/main.ts',
+    styles:  [
+      './node_modules/semantic-ui-css/components/menu.min.css'
+    ]
   },
   output: {
     path: config.build.assetsRoot,

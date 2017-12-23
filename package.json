@@ -15,12 +15,14 @@
     "deploy": "ngh --branch master --no-silent --name='Circle CI' --email='unrealwork@gmail.com'"
   },
   "dependencies": {
+    "semantic-ui-css": "^2.2.12",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
+    "angular-cli-ghpages": "^0.5.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
