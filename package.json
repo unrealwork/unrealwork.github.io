@@ -11,7 +11,8 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build": "node build/build.js",
-    "build.prod": "node build/build.js"
+    "build.prod": "node build/build.js",
+    "deploy": "ngh --branch master --no-silent --name='Circle CI' --email='unrealwork@gmail.com'"
   },
   "dependencies": {
     "vue": "^2.5.2",
