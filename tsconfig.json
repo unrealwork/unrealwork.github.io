@@ -1,19 +1,21 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
+    "noImplicitThis": false,
+    "module": "es2015",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "lib": [
-      "es2017",
-      "dom"
+      "dom",
+      "es5",
+      "es6",
+      "es2015.promise"
     ]
-  }
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "files" : [
+    "vue-shims.d.ts"
+  ]
 }
