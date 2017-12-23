@@ -12,7 +12,7 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld,
-      meta: {title: 'Home'}
+      meta: {title: 'a'}
     },
     {
       path: '/about',
