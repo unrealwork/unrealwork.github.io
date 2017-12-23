@@ -1,14 +1,31 @@
 <template>
   <div class="ui stackable menu">
-    <a class="item"><img src="../assets/logo.png"/></a>
-    <a class="item">B</a>
+    <router-link :to="'/'" class="item">
+        <img src="../assets/logo.png"/>
+    </router-link>
+    <router-link class="item" v-for="item in items" :to="item.link" :key="item.link" v-on:click="selected = item" v-bind:class="{active: selected === item}">
+        {{item.name}}
+    </router-link>
   </div>
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'nav-bar'
-  }
+  import Vue from 'vue'
+
+  export default Vue.component('nav-bar', {
+    data() {
+      return {
+        items: [
+          {
+            link: '/about',
+            name: 'About',
+            isActive: false
+          }
+        ],
+        selected: null
+      }
+    }
+  })
 </script>
 
 <style scoped>
