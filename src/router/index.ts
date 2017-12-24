@@ -16,7 +16,7 @@ export default new Router({
       meta: {title: 'Home'}
     },
     {
-      path: '/about',
+      path: '/about/',
       name: 'About',
       component: CvView,
       meta: {title: 'About'}
