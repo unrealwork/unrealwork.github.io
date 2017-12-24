@@ -89,7 +89,7 @@
           <div class="ui fluid card">
             <div class="content">
               <img class="right floated mini ui image"
-                   src="/assets/gerb.png">
+                   src="../assets/gerb.png">
               <div class="header">
                 Saint Petersburg State University
               </div>
