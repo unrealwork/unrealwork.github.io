@@ -25,7 +25,17 @@ module.exports = {
   entry: {
     app: './src/main.ts',
     styles:  [
-      './node_modules/semantic-ui-css/semantic.min.css'
+      './node_modules/semantic-ui-css/components/menu.min.css',
+      './node_modules/semantic-ui-css/components/container.min.css',
+      './node_modules/semantic-ui-css/components/segment.min.css',
+      './node_modules/semantic-ui-css/components/image.min.css',
+      './node_modules/semantic-ui-css/components/divider.min.css',
+      './node_modules/semantic-ui-css/components/card.min.css',
+      './node_modules/semantic-ui-css/components/header.min.css',
+      './node_modules/semantic-ui-css/components/grid.min.css',
+      './node_modules/semantic-ui-css/components/list.min.css',
+      './node_modules/semantic-ui-css/components/label.min.css',
+      './node_modules/semantic-ui-css/components/icon.min.css',
     ]
   },
   output: {
