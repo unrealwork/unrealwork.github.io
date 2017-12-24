@@ -10,9 +10,9 @@
             <div>
               <img class="ui small centered circular bordered image" src="/static/ava.svg">
             </div>
-            <h2 class="ui centered header">name</h2>
-            <h3 class="ui centered header">heading</h3>
-            <p>description</p>
+            <h2 class="ui centered header">{{cv.name}}</h2>
+            <h3 class="ui centered header">{{cv.heading}}</h3>
+            <p>{{cv.description}}</p>
           </div>
         </div>
       </div>
@@ -108,8 +108,25 @@
 </template>
 
 <script>
+  import {db} from '../firebase'
+
   export default {
-    name: 'cv-view'
+    name: 'cv-view',
+    firebase: () => {
+      return {
+        cv: {
+          source: db.ref('cv'),
+          // optionally bind as an object
+          asObject: true,
+          // optionally provide the cancelCallback
+          cancelCallback: function () {
+          },
+          // this is called once the data has been retrieved from firebase
+          readyCallback: function () {
+          }
+        }
+      }
+    }
   }
 </script>
 

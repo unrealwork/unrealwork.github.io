@@ -53,6 +53,20 @@ const webpackConfig = merge(baseWebpackConfig, {
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
+
+    new HtmlCriticalPlugin({
+      base: path.join(path.resolve(__dirname), '../dist/'),
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
+    }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
@@ -121,20 +135,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ]),
-    new HtmlCriticalPlugin({
-      base: path.join(path.resolve(__dirname), '../dist/'),
-      src: 'index.html',
-      dest: 'index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      }
-    })
+    ])
   ]
 })
 

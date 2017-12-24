@@ -3,18 +3,28 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueFire from 'vuefire';
+import {db} from "./firebase";
 
 Vue.config.productionTip = false
+
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   next()
 })
 
+
+Vue.use(VueFire);
+
 /* eslint-disable no-new */
-new Vue({
+const options = {
   el: '#app',
   router,
+  firebase: {
+    cv: db.ref('cv')
+  },
   template: '<App/>',
   components: {App}
-})
+}
+new Vue(options)

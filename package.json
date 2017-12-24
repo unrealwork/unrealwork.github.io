@@ -15,9 +15,11 @@
     "deploy": "ngh --branch master --no-silent --name='Circle CI' --email='unrealwork@gmail.com'"
   },
   "dependencies": {
+    "firebase": "4.8.0",
     "semantic-ui-css": "^2.2.12",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuefire": "^1.4.5"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
