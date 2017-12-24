@@ -8,7 +8,7 @@
         <div class="column">
           <div class="ui fluid card">
             <div>
-              <img class="ui small centered circular bordered image" src="../assets/ava.svg">
+              <img class="ui small centered circular bordered image" src="/static/ava.svg">
             </div>
             <h2 class="ui centered header">name</h2>
             <h3 class="ui centered header">heading</h3>
@@ -24,7 +24,7 @@
           <div class="ui fluid card">
             <div class="content">
               <img class="right floated small ui image"
-                   src="../assets/axibase_logo.png">
+                   src="/static/axibase_logo.png">
               <div class="header">
                 Junior Developer
               </div>
@@ -89,7 +89,7 @@
           <div class="ui fluid card">
             <div class="content">
               <img class="right floated mini ui image"
-                   src="../assets/gerb.png">
+                   src="/static/gerb.png">
               <div class="header">
                 Saint Petersburg State University
               </div>

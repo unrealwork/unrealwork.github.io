@@ -2,7 +2,7 @@
   <div class="ui menu">
     <router-link :to="'/'" class="item"
                  v-on:click.native="selected = null">
-      <img src="../assets/logo.svg"/>
+      <img src="../../static/logo.svg"/>
     </router-link>
     <router-link class="item"
                  v-for="item in items"
