@@ -278,13 +278,6 @@
   color: rgba(0,0,0,.95);
 }
 
-.ui.menu .active.item {
-  background: rgba(0,0,0,.05);
-  color: rgba(0,0,0,.95);
-  font-weight: 400;
-  box-shadow: none;
-}
-
 .ui.menu .active.item>i.icon {
   opacity: 1;
 }
