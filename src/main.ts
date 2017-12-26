@@ -5,7 +5,6 @@ import App from './App.vue'
 import router from './router'
 import VueFire from 'vuefire';
 import {db} from "./firebase";
-import VueProgressBar from 'vue-progressbar'
 
 const progressBarOptions = {
   color: '#bffaf3',
@@ -28,7 +27,6 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-Vue.use(VueProgressBar, progressBarOptions)
 Vue.use(VueFire);
 
 /* eslint-disable no-new */
@@ -41,4 +39,4 @@ const options = {
   template: '<App/>',
   components: {App}
 }
-new Vue(options).$mount('#app')
+new Vue(options)
