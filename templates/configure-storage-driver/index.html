@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html data-framework="vue" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Configure Storage Driver</title>
+</head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon-96x96.png"/>
+<link rel="stylesheet" href="css/bootstrap3.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="css/storage.css" media="screen" rel="stylesheet" type="text/css">
+<body>
+<div id="app" class="container page-content">
+    <form role="form" @submit.prevent="handleSubmit">
+        <h3>Configure ATSD storage driver</h3>
+        <br/>
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>Server:</b> <a target="_blank" :href="serverUrl">{{serverUrl}}</a>
+                <a target="_blank" href="https://axibase.com/docs/axibase-collector/atsd-server-connection.html"><i
+                        class="fa fa-question-circle" style="float: right"></i></a></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Protocol</label>
+                    <div class="controls">
+                        <select v-model="server.protocol">
+                            <option>http</option>
+                            <option>https</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" :class="{'has-error': errors.has('server.host') }">
+                    <label class="control-label">Name</label>
+                    <input v-model="server.host" name="server.host"
+                           v-validate="{ required: true, regex:
+                   /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/}"
+                           type="text" class="form-control" placeholder="Server Name">
+                    <p class="text-danger" v-if="errors.has('server.host')">{{ errors.first('server.host') }}</p>
+                </div>
+                <div class="form-group" :class="{'has-error': errors.has('port') }">
+                    <label class="control-label">Port</label>
+                    <div class="controls">
+                        <input placeholder="Port"
+                               class="form-control"
+                               v-model="server.port"
+                               name="port"
+                               v-validate="'numeric|between:0,65535'">
+                    </div>
+                    <p class="text-danger" v-if="errors.has('port')">{{ errors.first('port') }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>Collector User</b>
+                <a target="_blank" href="https://axibase.com/docs/atsd/administration/collector-account.html"><i
+                        class="fa fa-question-circle" style="float: right"></i></a></div>
+            <div class="panel-body">
+                <div class="form-group" :class="{'has-error': errors.has('username')}">
+                    <label class="control-label">User</label>
+                    <div class="controls">
+                        <input placeholder="Username"
+                               name="username"
+                               class="form-control"
+                               v-model="user.name"
+                               v-validate="'required|min:4'"
+                               type="text">
+                    </div>
+                    <p class="text-danger" v-if="errors.has('username')">{{ errors.first('username') }}</p>
+                </div>
+                <div class="form-group" :class="{'has-error': errors.has('password')}">
+                    <label class="control-label">Password</label>
+                    <div class="controls">
+                        <input placeholder="Password"
+                               class="form-control"
+                               name="password"
+                               v-model="user.password"
+                               v-validate="'required|min:6'"
+                               type="password">
+                    </div>
+                    <p class="text-danger" v-if="errors.has('password')">{{ errors.first('password') }}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="alert" v-if="submitResult.isDisplayed"
+             :class="{'alert-success': !submitResult.isError, 'alert-danger': submitResult.isError}">
+            {{submitResult.message}}
+        </div>
+        <hr class="separator">
+        <div style="float:right">
+            <input type="button" value="Skip" class="button skip">
+            <input type="submit" value="Save" class="button">
+        </div>
+    </form>
+</div>
+
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vee-validate.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+    Vue.use(VeeValidate);
+    VeeValidate.Validator.extend('port', {
+        getMessage: function (field) {
+            return 'The value is incorrect for port';
+        },
+        validate: function (value) {
+            return value & value.length > 3;
+        }
+    });
+</script>
+<script>
+    (function (exports) {
+        'use strict';
+        exports.app = new Vue({
+            el: '#app',
+            data: {
+                server: {
+                    protocol: 'https',
+                    host: 'localhost',
+                    port: 8443
+                },
+                user: {
+                    name: '',
+                    password: ''
+                },
+                submitResult: {
+                    isDisplayed: false,
+                    isError: false,
+                    message: ''
+                }
+            },
+            watch: {},
+            computed: {
+                serverUrl: function () {
+                    if (!this.errors.has('server.host')) {
+                        var result = this.server.protocol + '://' + this.server.host;
+                        if (this.server.port && !this.errors.has('port')) {
+                            return result + ':' + this.server.port;
+                        } else {
+                            return result;
+                        }
+                    }
+                    return '';
+                }
+            },
+            methods: {
+                isCorrectStorageDriver: function (permissions) {
+                    return permissions
+                        && permissions['all-entities-write']
+                        && permissions.roles
+                        && permissions.roles.indexOf('ROLE_API_DATA_WRITE') > -1
+                        && permissions.roles.indexOf('ROLE_API_META_WRITE') > -1
+                },
+                handleSubmit: function () {
+                    var baseUrl = this.serverUrl;
+                    var user = this.user;
+                    var self = this;
+                    this.$validator.validateAll().then(function (result) {
+                        if (result) {
+                            var message = '';
+                            axios.get(baseUrl + '/api/v1/permissions', {
+                                auth: {
+                                    username: user.name,
+                                    password: user.password
+                                }
+                            }).then(function (response) {
+                                if (self.isCorrectStorageDriver(response.data)) {
+                                    message = 'Correct Storage Driver!';
+                                    self.submitResult.isError = false;
+                                } else {
+                                    message = 'The account doesn\'t match to collector account requirements!';
+                                    self.submitResult.isError = true;
+                                }
+                            }).catch(function (err) {
+                                if (err.response) {
+                                    if (err.response.status === 401) {
+                                        message = 'The credentials are not correct!';
+                                    }
+                                } else {
+                                    message = 'The server is not correct ATSD server!';
+                                }
+                                self.submitResult.isError = true;
+                            }).finally(function () {
+                                self.submitResult.message = message;
+                                self.submitResult.isDisplayed = true;
+
+                            })
+                        }
+                    });
+                }
+
+            },
+            directives: {}
+        });
+    })(window);
+</script>
+</html>
